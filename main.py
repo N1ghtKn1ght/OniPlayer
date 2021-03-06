@@ -122,7 +122,7 @@ class Window(QWidget):
         frame = self.streamColor.read_frame()
         numpyBuffer = numpy.frombuffer(frame.get_buffer_as_uint8(), dtype=numpy.uint8)
         magiс = numpyBuffer.reshape(frame.height, frame.width, 3)
-        img = cv2.cvtColor(magiс, cv2.COLOR_BGR2RGB)
+        img = cv2.cvtColor(magiс, cv2.COLOR_BGRA2BGR)
         image = qimage2ndarray.array2qimage(img)
         self.labelColor.setPixmap(QPixmap.fromImage(image))
 
